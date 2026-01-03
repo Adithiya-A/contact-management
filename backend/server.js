@@ -7,12 +7,18 @@ import contactRoutes from "./routes/contactRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://contact-management-askadi.vercel.app/"],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true
+    }
+));
 app.use(express.json());
 
 app.use("/contacts", contactRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://youtubeuser:Ask_Adi01@ask-adi.79a0rtn.mongodb.net/")
 .then(() => {
     console.log("Connected to MongoDB");
     app.listen(process.env.PORT, () => {
