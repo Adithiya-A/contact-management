@@ -33,7 +33,7 @@ export const ContactForm = ({setContacts, contacts}) => {
         }
 
         try {
-            const res = await axios.post("http://localhost:5000/contacts", {name, email, number, message})
+            const res = await axios.post(`${import.meta.env.PORT}/contacts`, {name, email, number, message})
             setContacts([res.data, ...contacts])
             setName("")
             setEmail("")
