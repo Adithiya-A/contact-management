@@ -7,7 +7,7 @@ function App() {
   const [contacts, setContacts] = useState([]);
 
   return (
-    <div className='p-8 max-w-360 mx-auto grid grid-cols-3 gap-8'>
+    <div className='p-8 max-w-360 mx-auto grid grid-cols-3 gap-8 '>
 
         <div className='col-span-1 space-y-4'>
           <h1 className='text-3xl font-bold mb-10 text-blue-900'>
