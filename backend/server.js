@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use("/contacts", contactRoutes);
 
-mongoose.connect("mongodb+srv://youtubeuser:Ask_Adi01@ask-adi.79a0rtn.mongodb.net/")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     console.log("Connected to MongoDB");
     app.listen(process.env.PORT, () => {
