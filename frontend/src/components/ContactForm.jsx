@@ -33,7 +33,7 @@ export const ContactForm = ({setContacts, contacts}) => {
         }
 
         try {
-            const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/contacts`, {name, email, number, message})
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/contacts`, {name, email, number, message})
             setContacts([res.data, ...contacts])
             setName("")
             setEmail("")

@@ -10,7 +10,7 @@ export const ContactList = ({setContacts, contacts}) => {
         const fetchContacts = async () => {
             setLoading(true)
             const query = `?search=${search}`
-            const fetchPromise = axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/contacts${query}`);
+            const fetchPromise = axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/contacts${query}`);
             const delay = new Promise(resolve => setTimeout(resolve, 1000));
 
             const [res] = await Promise.all([fetchPromise, delay]);
@@ -25,7 +25,7 @@ export const ContactList = ({setContacts, contacts}) => {
     const handleDelete = async (id) => {
         if(confirm("Are you sure you want to delete this contact?")){
             try{
-                await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/contacts/${id}`)
+                await axios.delete(`${import.meta.env.VITE_BACKEND_BASE_URL}/contacts/${id}`)
                 setContacts((prev) => prev.filter(contact => contact._id !== id))
             }catch(error){
                 console.log(error)
